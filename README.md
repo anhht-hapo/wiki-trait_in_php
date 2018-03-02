@@ -1,5 +1,5 @@
-#Tìm hiểu về Trait trong PHP
-##Trait là gì ?
+# Tìm hiểu về Trait trong PHP
+## Trait là gì ?
 
 **Trait** có thể hiểu như một class, là nơi tập hợp một nhóm phương thức (*method*) mà chúng ta muốn sử dụng trong class khác. Cũng giống như Abstract Class, chúng ta không thể khởi tạo một đối tượng từ **Trait**.
 
@@ -24,7 +24,7 @@ class Report
 
 }
 ```
-####Đặt vấn đề :
+#### Đặt vấn đề :
 
 Nếu ta muốn sử dụng lại method listUsers trong class Database cho class Users hoặc class Report thì làm thế nào ? Trong trường hợp này thì chắc chắn các bạn sẽ nghĩ đến từ khóa **extends** đúng không? Và sẽ viết như thế này:
 ```php
@@ -105,7 +105,7 @@ class Users
 {
 }
 ```
-####Đặt vấn đề :
+#### Đặt vấn đề :
 Nếu ta muốn sử dụng lại method listUsers trong trait Database và sử dụng method authorize trong trait Authenticate cho class Users thì làm thế nào ? PHP đã hỗ trợ hết. Hãy theo dõi ví dụ dưới đây để hiểu rõ hơn về trường hợp này nào?
 ```php
 trait Database
@@ -172,7 +172,7 @@ class Users
 {
 }
 ```
-####Đặt vấn đề :
+#### Đặt vấn đề :
 1. Trong class Users tôi muốn sử dụng cả 2 trait.
 2. Tôi muốn sử dụng method checkLogin trong trait Authenticate.
 3. Tối muốn sử dụng method isAdmin trong trait Admin Để giải quyết các vấn đề trên thì tôi phải làm thế nào? Nhất là khi các method ở 2 trait đều giống nhau! Hãy theo dõi ví dụ dưới đây các bạn sẽ lần lượt solve các problem trên.
@@ -222,7 +222,7 @@ class Users
 ```
 * Qua ví dụ lần này thì các bạn đã hiểu về cách solve conflict method giữa các trait khi sử dụng nhiều trait trong 1 class rồi đúng không nào.
 * Chúng ta chỉ cần dùng từ khóa insteadof để giải quyết trường hợp này
-##Trait lồng nhau
+## Trait lồng nhau
 **Đặt vấn đề :**
 * Giả sử có 3 trait: trait Authenticate, Admin, Permisson.
 * Nếu sử dụng cả 3 trait này vào 1 class thì theo cách thông thường thì dùng từ khóa **use**.
@@ -260,14 +260,14 @@ class Users
     }
 }
 ```
-##Traits khác với Abstract Class thế nào?
+## Traits khác với Abstract Class thế nào?
 **Trait** khác với Abstract Class vì nó không dựa trên sự thừa kế. Tưởng tượng rằng nếu class Post và class Comment phải kế thừa từ một AbstractSocial class. Chúng ta dường như muốn nhiều hơn là chỉ share post và comment lên mạng xã hội. Tuy nhiên việc sử dụng abstract class khiến chúng ta phải xây dựng một mô hình kế thừa hết sức phức tạp như sau:
 ```php
 class AbstractValidate extends AbstractCache {}
 class AbstractSocial extends AbstractValidate {}
 class Post extends AbstractSocial {}
 ```
-##Traits khác với Interfaces thế nào?
+## Traits khác với Interfaces thế nào?
 Có thể nói về cơ bản thì **Trait** và **Interface** khá giống nhau về tính chất sử dụng. Cả hai đều không thể sử dụng nếu không có một class được implement cụ thể. Tuy nhiên chúng cũng có những sự khác nhau hết sức rõ rệt.
 
 **Interface** có thể hiểu như một bản "hợp đồng" (nếu sử dụng) chỉ ra rằng: "đối tượng có thể làm việc này", do vậy bạn phải implement nó thì mới sử dụng được. Trong khi đó **Trait** chỉ nói : "đối tượng có khả năng làm việc này".
@@ -315,11 +315,11 @@ if($post instanceOf Sociable)
   $post->share('hello world');
 }
 ```
-##Dùng Traits có lợi thế nào?
+## Dùng Traits có lợi thế nào?
 * Giảm việc lặp code.
 * Tránh được việc kế thừa nhiều tầng nhiều lớp khá phức tạp trong tổng thể hệ thống, sẽ khó maintain sau này.
 * Định nghĩa ngắn gọn, sau đó có thể đặt sử dụng ở những nơi cần thiết, sử dụng được ở nhiều class cùng lúc.
-##Nhược điểm của Traits
+## Nhược điểm của Traits
 * **Trait** có thể tạo ra các class mang quá nhiều trách nhiệm (responsibility). Trait được tạo ra chủ yếu dựa trên tư tưởng "copy and paste" code giữa các class. Chúng ta có thể dễ dành thêm một tập hợp các phương thức vào class thông qua việc sử dụng **Trait**.
 * Sử dụng Trait khiến chúng ta khó khăn trong việc xem tất cả các phương thức của một class, do vậy khó để có thể phát hiện được một phương thức bất kỳ có bị trùng lặp hay không.
 * **Trait** cảm giác như công cụ hữu ích cho những kẻ lười, khi muốn thêm vào để giải quyết vấn đề ngay lập tức. Thường thì Composition là một kiến trúc ổn hơn cho việc kế thừa hay sử dụng **Trait**.# wiki-trait_in_php
