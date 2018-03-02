@@ -208,9 +208,9 @@ class Users
     use Authenticate, Admin
     {
         Authenticate::checkLogin insteadof Admin;
-        //Sử dụng method checkLogin ở trait Authenticate thay cho  method checkLogin ở trait Admin
+        //use method checkLogin() of Trait Authentication
         Admin::isAdmin insteadof Authenticate
-        //Sử dụng method isAdmin ở trait Admin thay cho method isAdmin ở trait Authenticate
+        //use methd isAdmin() of Trait Admin
     }
 
     public function __construct()
@@ -247,7 +247,7 @@ trait Permission
 trait Authenticate
 {
     use Admin, Permission;
-    //chỉ cần gọi các trait vào bằng từ khóa use là giải quyết xong problem
+    //use Trait Admin and Permission
 }
 class Users
 {
