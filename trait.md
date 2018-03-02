@@ -322,4 +322,4 @@ if($post instanceOf Sociable)
 ##Nhược điểm của Traits
 * **Trait** có thể tạo ra các class mang quá nhiều trách nhiệm (responsibility). Trait được tạo ra chủ yếu dựa trên tư tưởng "copy and paste" code giữa các class. Chúng ta có thể dễ dành thêm một tập hợp các phương thức vào class thông qua việc sử dụng **Trait**.
 * Sử dụng Trait khiến chúng ta khó khăn trong việc xem tất cả các phương thức của một class, do vậy khó để có thể phát hiện được một phương thức bất kỳ có bị trùng lặp hay không.
-* **Trait** cảm giác như công cụ hữu ích cho những kẻ lười, khi muốn thêm vào để giải quyết vấn đề ngay lập tức. Thường thì Composition là một kiến trúc ổn hơn cho việc kế thừa hay sử dụng **Trait**.
+* **Trait** cảm giác như công cụ hữu ích cho những kẻ lười, khi muốn thêm vào để giải quyết vấn đề ngay lập tức. Thường thì Composition là một kiến trúc ổn hơn cho việc kế thừa hay sử dụng **Trait**.# wiki-trait_in_php
